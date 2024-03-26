@@ -1,6 +1,7 @@
 document.getElementById('btn1').addEventListener('click', fetchData1);
 document.getElementById('btn2').addEventListener('click', fetchData2);
 document.getElementById('btn3').addEventListener('click', fetchData3);
+document.getElementById('btn4').addEventListener('click', fetchData4);
 
 function fetchData1() {
     axios
@@ -28,6 +29,16 @@ function fetchData3() {
         .then(response => {
             const result3 = document.getElementById('result3');
             result3.innerText = JSON.stringify(response.data);
+            })
+        .catch(error => console.error(error.message));
+}
+
+function fetchData4() {
+    axios
+        .get('http://localhost:3000/credential', {withCredentials: true})
+        .then(response => {
+            const result4 = document.getElementById('result4');
+            result4.innerText = JSON.stringify(response.data);
             })
         .catch(error => console.error(error.message));
 }

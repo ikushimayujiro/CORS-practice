@@ -19,9 +19,21 @@
                 <button class="button" id="btn3">Preflight</button>
                 <p id="result3"></p>
             </div>
+            <div class="content">
+                <button class="button" id="btn4">cookie付きリクエスト</button>
+                <p id="result4"></p>
+            </div>
         </div>
+        <button onclick="alertCookie()">Show cookies</button>
+
         <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
         <script src="./js/server.js"></script>
+        <script>
+            document.cookie = 'name=Ikushima';
+            function alertCookie() {
+                alert(document.cookie);
+            }
+        </script>
     </body>
     <style lang="css">
         .container {
@@ -44,6 +56,9 @@
         }
         #btn3 {
             background-color: rgb(255, 255, 120);
+        }
+        #btn4 {
+            background-color: rgb(120, 255, 120);
         }
     </style>
 </html>

@@ -1,5 +1,8 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
+
 const app = express();
+app.use(cookieParser());
 const port = 3000;
 
 app.get('/allowed', (req, res) => {
@@ -21,6 +24,13 @@ app.options('/preflight', (req, res) => {
 app.put('/preflight', (req, res) => {
     res.append('Access-Control-Allow-Origin', '*');
     res.send("プリフライトリクエストを受け付けました");
+})
+
+app.get('/credential', (req, res) => {
+    res.append('Access-Control-Allow-Origin', 'http://localhost:4002');
+    res.append('Access-Control-Allow-Credentials', 'true');
+    const cookies = JSON.stringify(req.cookies);
+    res.send(`${cookies}を受け取りました`);
 })
 
 app.listen(port, () => {
