@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CORS Test</title>
+  </head>
+  
+  <body>
+    <h1>CORS Test</h1>
+    <img src="https://image.0101.co.jp/12907/img/ce01460351/ce014-60351-02b.jpg?basethum=225">
+    <h2 id="target"></h2>
+    <button onclick="f()">fetch</button>
+  </body>
+  <script>
+    const f = async () => {
+        fetch('https://image.0101.co.jp/12907/img/ce01460351/ce014-60351-02b.jpg?basethum=225')
+    }
+
+    const test  = async () => {
+        // リクエストヘッダーの生成
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        // リクエストの構築
+        const request = new Request('https://dev-marui.search.zetacx.net/api/ranking', {
+        method: 'GET',
+        headers: headers,
+        });
+
+        const data = await fetch(request).then(response => {
+            // レスポンス変換
+            return response.json();
+        })
+
+        const name = data.items.productResult[0].brand;
+        document.getElementById('target').textContent = name;
+    }
+
+    test();
+  </script>
+  <script>
+  </script>
+</html>
