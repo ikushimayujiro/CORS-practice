@@ -8,18 +8,22 @@
         <h1>CORS Test</h1>
         <div class="container">
             <div class="content">
+                <p class="title">btn1</p>
                 <button class="button" id="btn1">Allowed</button>
                 <p id="result1"></p>
             </div>
             <div class="content">
+                <p class="title">btn2</p>
                 <button class="button" id="btn2">Not Allowed</button>
                 <p id="result2"></p>
             </div>
             <div class="content">
+                <p class="title">btn3</p>
                 <button class="button" id="btn3">Preflight</button>
                 <p id="result3"></p>
             </div>
             <div class="content">
+                <p class="title">btn4</p>
                 <button class="button" id="btn4">cookie付きリクエスト</button>
                 <p id="result4"></p>
             </div>
@@ -42,6 +46,11 @@
         }
         .content {
             width: calc((100% - 20px * 3) / 4);
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
         }
         .button {
             width: 100%;
