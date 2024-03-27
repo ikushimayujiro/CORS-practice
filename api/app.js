@@ -27,7 +27,7 @@ app.put('/preflight', (req, res) => {
 })
 
 app.get('/credential', (req, res) => {
-    res.append('Access-Control-Allow-Origin', 'http://localhost:4002');
+    res.append('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.append('Access-Control-Allow-Credentials', 'true');
     const cookies = JSON.stringify(req.cookies);
     res.send(`${cookies}を受け取りました`);
